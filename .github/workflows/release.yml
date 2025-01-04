@@ -82,16 +82,18 @@ jobs:
           cp -rf dist ../release/statics
 
       # 上传共享资源
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: release
           path: release
+          include-hidden-files: true
 
       # 上传共享资源
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: electron-template
           path: electron-template
+          include-hidden-files: true
 
   build-linux-amd64:
     runs-on: ubuntu-latest
@@ -135,10 +137,11 @@ jobs:
           docker run --platform linux/amd64 -v $(pwd):/build teamide/build-go-gcc:amd64-1.20.14-7.5.0 /bin/bash /build/server/cmd/build-linux-amd64.sh ${{ steps.release_version.outputs.value }}
 
       # 上传共享资源
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: linux-amd64
           path: linux-amd64
+          include-hidden-files: true
 
   build-linux:
     needs: ["build-static","build-linux-amd64"]
