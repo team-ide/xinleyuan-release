@@ -186,7 +186,6 @@ jobs:
           cp linux-amd64/server release/server-linux-amd64/server
 
       - run: |
-          
           mv release/server-linux-amd64 server-linux-amd64-${{steps.release_version.outputs.value}}
           zip -q -r server-linux-amd64-${{steps.release_version.outputs.value}}.zip server-linux-amd64-${{steps.release_version.outputs.value}}
 
