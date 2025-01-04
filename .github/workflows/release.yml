@@ -136,11 +136,11 @@ jobs:
       - run: ls -l
 
       # 下载共享资源
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: release
           path: release
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: linux-amd64
           path: linux-amd64
@@ -199,7 +199,7 @@ jobs:
       - run: ls -l
 
       # 下载共享资源
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: release
           path: release
@@ -212,7 +212,7 @@ jobs:
           property: upload_url
 
       # 下载共享资源
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: electron-template
           path: electron-template
