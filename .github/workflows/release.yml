@@ -1,0 +1,23 @@
+name: release
+on:
+  push:
+    # tags: # 当我们提交代码为tag 是以'v'开头的时候才会触发自动部署到服务端 如 git push tag v0.1.0
+    #   - 'v*'
+    branches:
+      - main
+    #   - dev
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      # 下载源码
+      - uses: actions/checkout@v4
+        with:
+          repository: team-ide/xinleyuan
+          token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: xinleyuan
+
+      - run: |
+          cd xinleyuan
+          ls -l
+      
